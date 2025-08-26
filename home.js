@@ -1,5 +1,6 @@
 // console.log('home js file content');
 const validPin = 1234
+const transactionData = []
 
 
 // function to get input value
@@ -46,6 +47,19 @@ function handleToggle(id) {
 }
 
 
+// handle to toggleButtons
+function handleButtonToToggle(id){
+     const formsBtns = document.getElementsByClassName('from-btn')
+    for(const btn of formsBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]')
+        btn.classList.add('border-gray-300')
+        
+    }
+
+    document.getElementById(id).classList.remove('border-gray-300')
+    document.getElementById(id).classList.add('border-[#0874f2]', 'bg-[#0874f20d]')
+}
+
 
 // Add money js feature
 document.getElementById('add-money-btn').addEventListener('click', function (e) {
@@ -68,6 +82,13 @@ document.getElementById('add-money-btn').addEventListener('click', function (e) 
     }
     const totalNewAvailableBalance = amount + availableBalance
     setInnerText(totalNewAvailableBalance)
+    const data = {
+        name: 'Add Money',
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
+    console.log(transactionData);
+    
 })
 
 // cash out js feature
@@ -77,6 +98,37 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     const availableBalance = getInnerText('available-balance')
     const totalNewAvailableBalance = availableBalance - amount
     setInnerText(totalNewAvailableBalance)
+     const data = {
+        name: 'Cash Out',
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
+    console.log(transactionData);
+    
+})
+
+document.getElementById('transaction-button').addEventListener('click', function(e){
+    const transactionContainer = document.getElementById('transaction-container')
+    transactionContainer.innerText = ''
+    for(data of transactionData){
+        const div = document.createElement('div')
+        div.innerHTML = `
+        <div class="bg-white rounded-xl p-3 mt-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="rounded-full bg-[#0808080d]">
+                    <img src="./assets/wallet1.png" class="mx-auto p-3" alt="">
+                </div>
+                <div class="ml-3">
+                    <h1>${data.name}</h1>
+                    <p>${data.date}</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-ellipsis-vertical text-2xl"></i>
+        </div>
+        `
+        transactionContainer.appendChild(div)
+    }
+    
 })
 
 // toggling feature
@@ -84,28 +136,35 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 // Add Money
 document.getElementById('add-button').addEventListener('click', function () {
     handleToggle('add-money-parent')
+    handleButtonToToggle('add-button')
+    
 })
 
 // Cash Out
 document.getElementById('cash-out-button').addEventListener('click', function () {
     handleToggle('cash-out-parent')
+   handleButtonToToggle('cash-out-button')
 })
 
 // Transfer Money
 document.getElementById('transfer-button').addEventListener('click', function () {
 handleToggle('transfer-money-parent')
+handleButtonToToggle('transfer-button')
 })
 
 // Get Bonus
 document.getElementById('bonus-button').addEventListener('click', function () {
     handleToggle('get-bonus-parent')
+    handleButtonToToggle('bonus-button')
 })
 // Pay Bill
-document.getElementById('pay-button').addEventListener('click', function () {
+document.getElementById('bill-button').addEventListener('click', function () {
     handleToggle('pay-bill-parent')
+     handleButtonToToggle('bill-button')
 })
 
 // Transactions
 document.getElementById('transaction-button').addEventListener('click', function () {
     handleToggle('transaction-parent')
+     handleButtonToToggle('transaction-button')
 })

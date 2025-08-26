@@ -34,27 +34,27 @@
             <p class="mt-4">Enjoy easy and convenient financial services with us. <br> Cashout charge is low and </p>
         </div>
         <div class="min-h-[200px] grid grid-cols-3 gap-4 mt-8">
-            <div id="add-button" class="border text-center rounded-xl">
+            <div id="add-button" class="from-btn border-2 border-gray-300 text-center rounded-xl">
                 <img src="./assets/wallet1.png" class="mx-auto p-3" alt="">
                 <h2>Add Money</h2>
             </div>
-            <div id="cash-out-button" class="border text-center rounded-xl">
+            <div id="cash-out-button" class="from-btn border-2 border-gray-300 text-center rounded-xl">
                 <img src="./assets/send1.png" class="mx-auto p-3" alt="">
                 <h2>CashOut</h2>
             </div>
-            <div id="transfer-button" class="border text-center rounded-xl">
+            <div id="transfer-button" class="from-btn border-2 border-gray-300 text-center rounded-xl">
                 <img src="./assets/money1.png" class="mx-auto p-3" alt="">
                 <h2>Transfer Money</h2>
             </div>
-            <div id="bonus-button" class="border text-center rounded-xl">
+            <div id="bonus-button" class="from-btn border-2 border-gray-300 text-center rounded-xl">
                 <img src="./assets/bonus1.png" class="mx-auto p-3" alt="">
                 <h2>Get Bonus</h2>
             </div>
-            <div id="pay-button" class="border text-center rounded-xl">
+            <div id="bill-button" class="from-btn border-2 border-gray-300 text-center rounded-xl">
                 <img src="./assets/purse1.png" class="mx-auto p-3" alt="">
                 <h2>Pay Bill</h2>
             </div>
-            <div id="transaction-button" class="border text-center rounded-xl">
+            <div id="transaction-button" class="from-btn border-2 border-gray-300 text-center rounded-xl">
                 <img src="./assets/transaction1.png" class="mx-auto p-3" alt="">
                 <h2>Transactions</h2>
             </div>
@@ -145,7 +145,14 @@
 
     <!-- Transactions -->
     <div class="form" id="transaction-parent" style="display: none" ;>
-        <h1 class="font-bold my-5 text-xl">Transactions</h1>
+        <div class="flex justify-between items-center">
+            <h1 class="font-bold my-5 text-xl">Transactions</h1>
+            <p class="font-bold">View All</p>
+        </div>
+        <div id="transaction-container">
+            
+        </div>
+
     </div>
 
     <script src="./home.js"></script>
